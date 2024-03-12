@@ -62,13 +62,13 @@
             params +
             '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe></noscript>'
     );
-    let iframe = document.querySelector("#cbdc-cbp");
+    let iframe2 = document.querySelector("#cbdc-cbp");
     window.addEventListener(
             "message",
             function (e) {
               let message = e.data;
-              iframe.style.height = message.height + "px";
-              iframe.style.width = message.width + "px";
+              iframe2.style.height = message.height + "px";
+              iframe2.style.width = message.width + "px";
             },
             false
     );
