@@ -1,46 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title>CCR Tracker</title>
+  <title>CCR Tracker</title>
 
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      iframe {
-        max-width: 100%;
-      }
-      
-      
-    </style>
-  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    iframe {
+      max-width: 100%;
+    }
+    .cbdc-cbp {
+      max-width: 1310px;
+      width: 100%;
+    }
 
-  <body>
 
-<script>
-  const params = window.location.search;
-  document.write(
-    '<iframe class="lazy lazy-hidden" id="cbdc-tracker"  data-lazy-type="iframe" src="frame.html' +
-      params +
-      '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe><noscript><iframe id="cbdc-tracker" src="frame.html' +
-      params +
-      '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe></noscript>'
-  );
-  let iframe = document.querySelector("#cbdc-tracker");
-  window.addEventListener(
-    "message",
-    function (e) {
-      let message = e.data;
-      iframe.style.height = message.height + "px";
-      iframe.style.width = message.width + "px";
-    },
-    false
-  );
-</script>
+  </style>
+</head>
 
-  </body>
+<body>
+
+
+
+
+<div class="cbdc">
+  <script>
+    const params = window.location.search;
+    document.write(
+            '<iframe class="lazy lazy-hidden" id="cbdc-tracker"  data-lazy-type="iframe" src="https://inbetweencode.github.io/cbdc-tracker-2023/' +
+            params +
+            '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe><noscript><iframe id="cbdc-tracker" src="https://inbetweencode.github.io/cbdc-tracker-2023/' +
+            params +
+            '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe></noscript>'
+    );
+    let iframe = document.querySelector("#cbdc-tracker");
+    window.addEventListener(
+            "message",
+            function (e) {
+              let message = e.data;
+              iframe.style.height = message.height + "px";
+              iframe.style.width = message.width + "px";
+            },
+            false
+    );
+  </script>
+</div>
+
+
+<div class="cbdc-cbp">
+  <script>
+    const params = window.location.search;
+    document.write(
+            '<iframe class="lazy lazy-hidden" id="cbdc-cbp"  data-lazy-type="iframe" src="frame.html' +
+            params +
+            '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe><noscript><iframe id="cbdc-cbp" src="frame.html' +
+            params +
+            '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe></noscript>'
+    );
+    let iframe = document.querySelector("#cbdc-cbp");
+    window.addEventListener(
+            "message",
+            function (e) {
+              let message = e.data;
+              iframe.style.height = message.height + "px";
+              iframe.style.width = message.width + "px";
+            },
+            false
+    );
+  </script>
+</div>
+
+
+
+
+</body>
 </html>
