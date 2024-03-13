@@ -37,11 +37,11 @@
   <script>
     const params = window.location.search;
   </script>
-  <!--<script>
+  <script>
     document.write(
-            '<iframe class="lazy lazy-hidden" id="cbdc-tracker"  data-lazy-type="iframe" src="https://inbetweencode.github.io/cbdc-tracker-2023/' +
+            '<iframe class="lazy lazy-hidden" id="cbdc-tracker"  data-lazy-type="iframe" src="https://inbetweencode.github.io/cbdc-tracker-2024/' +
             params +
-            '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe><noscript><iframe id="cbdc-tracker" src="https://inbetweencode.github.io/cbdc-tracker-2023/' +
+            '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe><noscript><iframe id="cbdc-tracker" src="https://inbetweencode.github.io/cbdc-tracker-2024/' +
             params +
             '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe></noscript>'
     );
@@ -49,13 +49,16 @@
     window.addEventListener(
             "message",
             function (e) {
-              let message = e.data;
-              iframe.style.height = message.height + "px";
-              iframe.style.width = message.width + "px";
+              if (iframe.contentWindow === e.source || iframe.contentWindow === e.target) {
+                console.log('iframe', e.source, e.target );
+                let message = e.data;
+                iframe.style.height = message.height + "px";
+                iframe.style.width = message.width + "px";
+              }
             },
             false
     );
-  </script>-->
+  </script>
 </div>
 <h3>Key findings</h3>
 
@@ -75,9 +78,12 @@
     window.addEventListener(
             "message",
             function (e) {
-              let message = e.data;
-              iframe2.style.height = message.height + "px";
-              iframe2.style.width = message.width + "px";
+              if (iframe2.contentWindow === e.source || iframe2.contentWindow === e.target) {
+                console.log('iframe2', e.source, e.target );
+                let message = e.data;
+                iframe2.style.height = message.height + "px";
+                iframe2.style.width = message.width + "px";
+              }
             },
             false
     );
