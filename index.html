@@ -45,15 +45,14 @@
             params +
             '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe></noscript>'
     );
-    let iframe = document.querySelector("#cbdc-tracker");
+    let iframeCBDC = document.querySelector("#cbdc-tracker");
     window.addEventListener(
             "message",
             function (e) {
-              if (iframe.contentWindow === e.source || iframe.contentWindow === e.target) {
-                console.log('iframe', e.source, e.target );
+              if (iframeCBDC.contentWindow === e.source || iframeCBDC.contentWindow === e.target) {
                 let message = e.data;
-                iframe.style.height = message.height + "px";
-                iframe.style.width = message.width + "px";
+                iframeCBDC.style.height = message.height + "px";
+                iframeCBDC.style.width = message.width + "px";
               }
             },
             false
@@ -62,6 +61,7 @@
 </div>
 <h3>Key findings</h3>
 
+Wordpress content
 
 <div class="cbdc-cbp">
   <h3>Crossborder CBDC projects</h3>
@@ -74,15 +74,15 @@
             params +
             '" scrolling="no" style="width: 1px;min-width: 100%;border: none"></iframe></noscript>'
     );
-    let iframe2 = document.querySelector("#cbdc-cbp");
+    let iframeCBP = document.querySelector("#cbdc-cbp");
     window.addEventListener(
             "message",
             function (e) {
-              if (iframe2.contentWindow === e.source || iframe2.contentWindow === e.target) {
+              if (iframeCBP.contentWindow === e.source || iframeCBP.contentWindow === e.target) {
                 console.log('iframe2', e.source, e.target );
                 let message = e.data;
-                iframe2.style.height = message.height + "px";
-                iframe2.style.width = message.width + "px";
+                iframeCBP.style.height = message.height + "px";
+                iframeCBP.style.width = message.width + "px";
               }
             },
             false
